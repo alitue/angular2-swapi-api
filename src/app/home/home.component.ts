@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SwapiService } from '../shared/swapi.service';
 
 @Component({
@@ -8,12 +9,27 @@ import { SwapiService } from '../shared/swapi.service';
 })
 export class HomeComponent implements OnInit {
   private films: any[];
+  private loading = false;
 
-  constructor(private swapi: SwapiService) {}
+  constructor(private router: Router, private swapi: SwapiService) {}
 
   ngOnInit() {
-    this.swapi.getfilms().subscribe(res => {
-      this.films = res;
+    this.loading = true;
+    this.swapi.getFilms().subscribe(res => {
+      this.loading = false;
+      this.films = res.results;
     });
+  }
+
+  getFakeImage(film: any) {
+    const array = film.url.split('/');
+    const id = array[array.length - 2];
+    return this.swapi.getFakeImage(id);
+  }
+
+  onSelectFilm(film: any) {
+    const array = film.url.split('/');
+    const id = array[array.length - 2];
+    this.router.navigate(['/about', id]);
   }
 }

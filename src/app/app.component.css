@@ -1,0 +1,12 @@
+.navbar-dark{
+    background-color: red;
+    border-bottom: 1px solid rgba(0,0,0,.6);
+    background-color: #1c1e22;
+    color: #fff;
+}
+.navbar-brand{
+  color: #ffe300;
+}
+.nav-link{
+  color: #fff !important;
+}

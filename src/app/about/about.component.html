@@ -1,1 +1,17 @@
-<h3>About Component</h3>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="container">
+	<div class="row card">
+		<div class="col-xs-12 col-sm-12">
+			<div class="row">
+				<div class="col">
+					<div class="img-card" href="#">
+						<img src="{{getFakeImage(film)}}" />
+					</div>
+				</div>
+				<div class="col-8">
+					2 of 3 (wider)
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -8,7 +8,15 @@ export class SwapiService {
 
   constructor(private http: Http) {}
 
-  getfilms() {
+  getFilms() {
     return this.http.get(this.url).pipe(map(res => res.json()));
+  }
+
+  getFilmById(id: number) {
+    return this.http.get(`${this.url}/${id}`).pipe(map(res => res.json()));
+  }
+
+  getFakeImage(id: number) {
+    return `assets/img/${id}.jpg`;
   }
 }

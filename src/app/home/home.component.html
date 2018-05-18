@@ -1,3 +1,27 @@
-<h3>Home Component</h3>
-
-{{films | json}}
+<div class="container">
+  <div class="row cards">
+    <div class="col-xs-12 col-sm-4" *ngFor="let film of films; let i = index;">
+      <div class="card" (click)="onSelectFilm(film)">
+        <div class="img-card" href="#">
+          <img src="{{getFakeImage(film)}}" />
+        </div>
+        <div class="card-content">
+          <h4 class="card-title">
+            <div class="link">
+              {{film.title}}
+            </div>
+          </h4>
+          <div class="">
+            Release date: {{film.release_date}}
+          </div>
+        </div>
+        <div class="card-read-more">
+          <div class="link">
+            Read More
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
