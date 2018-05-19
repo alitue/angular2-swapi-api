@@ -12,11 +12,7 @@ export class SwapiService {
     return this.http.get(this.url).pipe(map(res => res.json()));
   }
 
-  getFilmById(id: number) {
+  getFilmById(id) {
     return this.http.get(`${this.url}/${id}`).pipe(map(res => res.json()));
-  }
-
-  getFakeImage(id: number) {
-    return `assets/img/${id}.jpg`;
   }
 }

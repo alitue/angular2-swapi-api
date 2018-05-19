@@ -4,27 +4,35 @@ import { SwapiService } from '../shared/swapi.service';
 
 @Component({
   selector: 'app-about',
-  styleUrls: ['./about.component.css'],
+  styleUrls: ['./about.component.scss'],
   templateUrl: './about.component.html'
 })
 export class AboutComponent implements OnInit {
   id: number;
+  loading = false;
   film: any;
+  error: any;
 
   constructor(private swapi: SwapiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
-      this.swapi.getFilmById(this.id).subscribe(res => {
-        this.film = res;
-      });
+      this.loading = true;
+
+      this.swapi
+        .getFilmById(this.id)
+        .subscribe(data => this.handleData(data), err => this.handleError(err));
     });
   }
 
-  getFakeImage(film: any) {
-    const array = film.url.split('/');
-    const id = array[array.length - 2];
-    return this.swapi.getFakeImage(id);
+  handleData(data) {
+    this.loading = false;
+    this.film = data;
+  }
+
+  handleError(error) {
+    this.loading = false;
+    this.error = JSON.parse(error._body).detail;
   }
 }

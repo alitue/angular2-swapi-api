@@ -1,17 +1,43 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <div class="container">
-	<div class="row card">
-		<div class="col-xs-12 col-sm-12">
-			<div class="row">
-				<div class="col">
-					<div class="img-card" href="#">
-						<img src="{{getFakeImage(film)}}" />
-					</div>
+
+	<h2 class="error" *ngIf="error">
+		{{error}},
+		<a [routerLink]="['/home']">
+      go home...
+    </a>
+	</h2>
+
+	<div class="row details" *ngIf="film">
+		<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+			<div class="poster">
+				<div class="center">
+					<img src="/assets/starwars.svg" alt="Star" class="logo">
+					<h2 class="title">{{film.title}}</h2>
 				</div>
-				<div class="col-8">
-					2 of 3 (wider)
+			</div>
+		</div>
+		<div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+			<div class="content">
+				<h2 class="title">{{film.title}}</h2>
+				<p class="opening_crawl">
+					<strong>Opening Crawl:</strong>
+					{{film.opening_crawl}}
+				</p>
+				<p class="director">
+					<strong>Director:</strong>
+					{{film.director}}
+				</p>
+				<p class="producer">
+					<strong>Producer:</strong>
+					{{film.producer}}
+				</p>
+				<p class="release_date">
+					<strong>Relese Date:</strong>
+					{{film.release_date | date}}
+				</p>
+				<div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
