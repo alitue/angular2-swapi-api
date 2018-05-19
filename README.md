@@ -5,7 +5,7 @@ This project is a web client of [SWAPI The Star Wars API](https://swapi.co/) for
 Using:
 [Angular CLI](https://github.com/angular/angular-cli) version 6.0.2 (for generate project)
 [Bootstrap](https://github.com/angular/angular-cli) version 4.1.1.
-[ng2-loading-bar](https://github.com/aitboudad/ngx-loading-bar)
+[ngx-loading](https://github.com/Zak-C/ngx-loading)
 
 ## Installation
 
