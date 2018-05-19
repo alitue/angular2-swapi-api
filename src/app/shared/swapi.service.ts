@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class SwapiService {
   private url = 'https://swapi.co/api/films';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
-  getFilms() {
-    return this.http.get(this.url).pipe(map(res => res.json()));
+  getFilms(): any {
+    return this.http.get(this.url);
   }
 
-  getFilmById(id) {
-    return this.http.get(`${this.url}/${id}`).pipe(map(res => res.json()));
+  getFilmById(id): any {
+    return this.http.get(`${this.url}/${id}`);
   }
 }

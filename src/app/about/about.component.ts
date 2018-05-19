@@ -31,8 +31,8 @@ export class AboutComponent implements OnInit {
     this.film = data;
   }
 
-  handleError(error) {
+  handleError(data) {
     this.loading = false;
-    this.error = JSON.parse(error._body).detail;
+    this.error = data.error.detail;
   }
 }

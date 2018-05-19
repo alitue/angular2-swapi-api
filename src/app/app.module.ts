@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 import { LoadingModule } from 'ngx-loading';
@@ -16,7 +16,7 @@ import { SwapiService } from './shared/swapi.service';
   imports: [
     BrowserModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
-    HttpModule,
+    HttpClientModule,
     LoadingModule
   ],
   providers: [SwapiService],

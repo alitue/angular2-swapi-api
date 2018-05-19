@@ -1,12 +1,16 @@
 .navbar-dark{
-    background-color: red;
-    border-bottom: 1px solid rgba(255,255,255,1);
-    background-color: #000 !important;
-    color: #fff;
-}
-.navbar-brand{
-  color: #FFE81F;
-}
-.nav-link{
-  color: #fff !important;
+  background-color: red;
+  border-bottom: 1px solid rgba(255,255,255,1);
+  background-color: #000 !important;
+  color: #fff;
+
+  .navbar-brand{
+    color: #FFE81F;
+  }
+  .nav-link{
+    color: #fff !important;
+  }
+  .nav{
+    flex: 1;
+  }
 }

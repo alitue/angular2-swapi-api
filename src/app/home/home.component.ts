@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
     this.films = data.results;
   }
 
-  handleError(error) {
+  handleError(data) {
     this.loading = false;
-    this.error = JSON.parse(error._body).detail;
+    this.error = data.error.detail;
   }
 
   onSelectFilm(film: any) {
